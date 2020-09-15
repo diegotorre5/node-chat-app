@@ -53,10 +53,9 @@ socket.on('newMessage', function(message){
 socket.on('newLocationMessage', function(message){
   var formattedTime = moment(messages.createAt).format('h:mm a');
   var template = jQuery('#location-message-template').html();
-  console.log('user:',message.from);
-  var html = Mustache.render(template,{
-    url: message.url,
+  var html = Mustache.render(template, {
     from: message.from,
+    url: message.url,
     createdAt: formattedTime
   });
   jQuery('#messages').append(html);
